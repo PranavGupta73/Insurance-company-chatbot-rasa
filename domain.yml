@@ -10,51 +10,56 @@ intents:
   - bot_challenge
   - supply_info
   - check_claim_status
+  - file_a_claim
+  - provide_uname
 
-entities: 
-  - name   
+entities:
+  - name
   - claim_id
-
+  - uname
 
 slots:
   name:
     type: text
     mappings:
-    - type: from_entity
-      entity: name
+      - type: from_entity
+        entity: name
   claim_id:
     type: text
     mappings:
-    - type: from_entity
-      entity: claim_id
+      - type: from_entity
+        entity: claim_id
 
-
-    
 responses:
   utter_greet:
-  - text: "Hey there, I'm Insura, the virtual assistant for AEG Insurance Limited! How can I help you today?"
+    - text: "Hey there, I'm Insura, the virtual assistant for AEG Insurance Limited! How can I help you today?"
 
   utter_checking_status:
-  - text: "Thank you for the information! Please wait a moment while I check your claim status."
-  
+    - text: "Thank you for the information! Please wait a moment while I check your claim status."
+
   utter_supply_info:
-  - text: "Sure, I can help you with that. Can you please supply your name and claim ID?"
-  
+    - text: "Sure, I can help you with that. Can you please supply your name and claim ID?"
+
+  utter_provide_uname:
+    - text: "Okay. Can you pleaase provide me with your registered Username?"
+
+  utter_provide_documents:
+    - text: "Thanks for trusting us! I request you to forward your documents to +919211420786 so that our employees can verify them"
+
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "We hope we were able to help you. Goodbye!"
+    - text: "We hope we were able to help you. Goodbye!"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
 actions:
   - action_csv
-
 
 session_config:
   session_expiration_time: 60
