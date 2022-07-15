@@ -1,2 +1,4 @@
 name,id,status,amount
-Pranav,abcdef,Approved,50000
+Susan,abcdef,Approved,50000
+John,fghjkl,Rejected,0
+David,qwerty,Pending,0

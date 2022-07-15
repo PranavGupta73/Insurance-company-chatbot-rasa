@@ -1,4 +1,5 @@
 from dis import dis
+import random
 import string
 from typing import Any, Text, Dict, List
 
@@ -30,4 +31,21 @@ class ActionReadCSV(Action):
                         return[]
         dispatcher.utter_message("Your entered name or id is incorrect, please type again.\n")
         return[]
+
+    
+    def name(self) -> Text:
+         return "action_write_csv"
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        id = random(6)
+        name=tracker.get_slot('name')
+        with open('claimstatus.csv','w') as file:
+            writer = csv.writer(file)
+            tup1={name,id,"Pending","0"}
+            writer.writerow(tup1)
+        dispatcher.utter_message("Your request has been accepted. Your Claim Id is "+id+".")
+        dispatcher.utter_message("Please remember this unique claim id for future reference.")
+        return[]
+
                         
