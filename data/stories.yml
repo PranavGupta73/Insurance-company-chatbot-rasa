@@ -33,7 +33,7 @@ stories:
       - intent: provide_uname
         entities:
           - uname
-      - action: store_uname
+      - action: action_write_csv
       - action: utter_provide_documents
       - action: utter_did_that_help
       - intent: affirm

@@ -108,7 +108,7 @@ nlu:
       - submit a new claim
       - make a new claim
       - file a new claim
-  -intent: provide_uname
+  - intent: provide_uname
     examples: |
       - [John](uname).
       - Sure. I am registered as [Susan](uname).

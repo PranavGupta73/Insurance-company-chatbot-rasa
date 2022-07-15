@@ -1,5 +1,6 @@
 from dis import dis
-import random
+import imp
+from random import randint
 import string
 from typing import Any, Text, Dict, List
 
@@ -38,12 +39,15 @@ class ActionReadCSV(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        id = random(6)
-        name=tracker.get_slot('name')
-        with open('claimstatus.csv','w') as file:
+        id = ""
+        for i in range(6):
+            id+=str(randint(0,9))
+        name=tracker.get_slot('uname')
+        with open('claimstatus.csv','a',newline="") as file:
             writer = csv.writer(file)
-            tup1={name,id,"Pending","0"}
-            writer.writerow(tup1)
+            # tup1={name,id,"Pending","0"}
+            # print(tup1)
+            writer.writerow([name,id,"Pending",0])
         dispatcher.utter_message("Your request has been accepted. Your Claim Id is "+id+".")
         dispatcher.utter_message("Please remember this unique claim id for future reference.")
         return[]
